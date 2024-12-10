@@ -15,6 +15,7 @@ import com.paba.latroom.database.daftarbelanja
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.withContext
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,7 +46,20 @@ class MainActivity : AppCompatActivity() {
         var _rvDaftar = findViewById<RecyclerView>(R.id.rvDaftar)
         _rvDaftar.layoutManager = LinearLayoutManager(this)
         _rvDaftar.adapter = adapterDaftar
+
+        adapterDaftar.setOnItemClickCallback(object : adapterDaftar.OnItemClickCallback {
+            override fun delData(dtBelanja: daftarbelanja) {
+                CoroutineScope(Dispatchers.IO).async {
+                    DB.fundaftarBelanjaDAO().delete(dtBelanja)
+                    val daftar = DB.fundaftarBelanjaDAO().selectALL()
+                    withContext(Dispatchers.Main) {
+                        adapterDaftar.isiData(daftar)
+                    }
+                }
+            }
+        })
     }
+
 
     override fun onStart() {
         super.onStart()
