@@ -11,6 +11,7 @@
         android:id="@+id/etItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Masukan Item"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:hint="Masukan Jumlah"
         app:layout_constraintTop_toBottomOf="@+id/etItem"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -28,6 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="112dp"
         android:layout_marginTop="40dp"
+        android:text="Tambah"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etJumlah" />
 
@@ -35,8 +38,9 @@
         android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="40dp"
+        android:text="Update"
         app:layout_constraintStart_toEndOf="@+id/btnTambah"
         app:layout_constraintTop_toBottomOf="@+id/etJumlah" />
 

@@ -36,7 +36,7 @@ class TambahDaftar : AppCompatActivity() {
 
         _btnTambah.setOnClickListener {
             CoroutineScope(Dispatchers.IO).async {
-                DB.daftarBelanjaDAO().insert(
+                DB.fundaftarBelanjaDAO().insert(
                     daftarbelanja(
                         tanggal = tanggal,
                         item = _etItem.text.toString(),
