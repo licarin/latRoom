@@ -25,6 +25,7 @@ class adapterDaftar (private val daftarBelanja : MutableList<daftarbelanja>):
 
     interface OnItemClickCallback {
             fun delData(dtBelanja: daftarbelanja)
+            fun done(dtBelanja: daftarbelanja)
     }
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback){
@@ -52,6 +53,11 @@ class adapterDaftar (private val daftarBelanja : MutableList<daftarbelanja>):
         holder._tvBtnDelete.setOnClickListener {
             onItemClickCallback.delData(daftar)
         }
+
+        holder._tvBtnDone.setOnClickListener {
+            onItemClickCallback.done(daftar)
+        }
+
     }
 
     inner class ListViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
@@ -61,7 +67,8 @@ class adapterDaftar (private val daftarBelanja : MutableList<daftarbelanja>):
 
         var _tvBtnEdit = itemView.findViewById<ImageButton>(R.id.editBtn)
         var _tvBtnDelete = itemView.findViewById<ImageButton>(R.id.deleteBtn)
-    }
+        var _tvBtnDone  = itemView.findViewById<ImageButton>(R.id.doneBtn)
+ }
 
     fun isiData(daftar: List<daftarbelanja>){
         daftarBelanja.clear()
